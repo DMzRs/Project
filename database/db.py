@@ -61,7 +61,7 @@ def get_all_ingredients():
     return []
 
 
-def update_ingredient_stock(ingredient_id, new_quantity, new_overall_price):
+def update_ingredient_stock(ingredient_id, new_price, new_quantity, new_overall_price):
     """Update stock quantity and overall price for an ingredient."""
     conn = get_connection()
     if conn:
@@ -69,11 +69,11 @@ def update_ingredient_stock(ingredient_id, new_quantity, new_overall_price):
             cursor = conn.cursor()
             query = """
                 UPDATE ingredients
-                SET stock_quantity=%s, overall_price=%s
+                SET price=%s, stock_quantity=%s, overall_price=%s
                 WHERE ingredient_id=%s
             """
             cursor.execute(
-                query, (new_quantity, new_overall_price, ingredient_id))
+                query, (new_price, new_quantity, new_overall_price, ingredient_id))
             conn.commit()
             cursor.close()
             conn.close()
