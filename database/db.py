@@ -2,7 +2,6 @@ import mysql.connector
 from mysql.connector import Error
 import streamlit as st
 
-# Read database credentials from Streamlit secrets
 DB_CONFIG = {
     "host": st.secrets["mysql"]["host"],
     "port": st.secrets["mysql"]["port"],
@@ -13,7 +12,6 @@ DB_CONFIG = {
 
 
 def get_connection():
-    """Create a connection to the MySQL database."""
     try:
         conn = mysql.connector.connect(**DB_CONFIG)
         return conn
@@ -23,7 +21,6 @@ def get_connection():
 
 
 def add_ingredient(name, category, price, stock_quantity, overall_price):
-    """Insert a new ingredient into the ingredients table."""
     conn = get_connection()
     if conn:
         try:
@@ -45,7 +42,6 @@ def add_ingredient(name, category, price, stock_quantity, overall_price):
 
 
 def get_all_ingredients():
-    """Fetch all ingredients from the database."""
     conn = get_connection()
     if conn:
         try:
@@ -62,7 +58,6 @@ def get_all_ingredients():
 
 
 def update_ingredient_stock(ingredient_id, new_price, new_quantity, new_overall_price):
-    """Update stock quantity and overall price for an ingredient."""
     conn = get_connection()
     if conn:
         try:
@@ -85,7 +80,6 @@ def update_ingredient_stock(ingredient_id, new_price, new_quantity, new_overall_
 
 
 def search_ingredients_by_name(name):
-    """Search ingredients by name."""
     conn = get_connection()
     if conn:
         try:
