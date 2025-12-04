@@ -28,6 +28,7 @@ Before running the project, make sure you have the following installed:
 ### How to Run
 
 - Just Type in the terminal
-   ```bash
-    Streamlit run homepage.py
-    ```
+  
+  ```bash
+  Streamlit run homepage.py
+  ```
