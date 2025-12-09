@@ -4,6 +4,10 @@ import database.db as db
 st.title("Update Burger Ingredient")
 db.get_connection()
 
+if "logged_in" not in st.session_state or not st.session_state["logged_in"]:
+    st.error("You must log in to access this page.")
+    st.stop()
+
 # --- Update Ingredient function ---
 
 
