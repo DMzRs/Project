@@ -24,3 +24,11 @@ Before running the project, make sure you have the following installed:
   ```
 
 - **Imported the database file (mysql)** which is located in the database folder.
+
+### How to Run
+
+- Just Type in the terminal
+  
+  ```bash
+  Streamlit run homepage.py
+  ```
