@@ -42,6 +42,23 @@ def add_ingredient(name, category, price, stock_quantity, overall_price):
     return False
 
 
+def delete_ingredient(ingredient_id):
+    conn = get_connection()
+    if conn:
+        try:
+            cursor = conn.cursor()
+            query = "DELETE FROM ingredients WHERE ingredient_id = %s"
+            cursor.execute(query, (ingredient_id,))
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return True
+        except Error as e:
+            st.error(f"Error deleting ingredient: {e}")
+            return False
+    return False
+
+
 def get_all_ingredients():
     conn = get_connection()
     if conn:
