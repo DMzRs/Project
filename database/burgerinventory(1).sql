@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2025 at 12:15 PM
+-- Generation Time: Dec 15, 2025 at 03:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,20 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `ingredients` (
   `ingredient_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `category` enum('Vegetable','Meat','Dairy','Grain','Other') NOT NULL,
+  `category` enum('Bun','Meat','Sauce','Vegetable','Dairy','Other') NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `stock_quantity` int(11) NOT NULL DEFAULT 0,
   `overall_price` decimal(12,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ingredients`
---
-
-INSERT INTO `ingredients` (`ingredient_id`, `name`, `category`, `price`, `stock_quantity`, `overall_price`) VALUES
-(1, 'Lettuce', 'Vegetable', 12.00, 5, 60.00),
-(2, 'Lettuce', 'Vegetable', 1.00, 5, 5.00),
-(3, 'Lettuce', 'Vegetable', 12.00, 10, 120.00);
 
 -- --------------------------------------------------------
 
@@ -94,7 +85,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ingredient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

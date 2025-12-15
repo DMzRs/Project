@@ -42,12 +42,24 @@ ingredient_map = {
     for _, row in df.iterrows()
 }
 
-selected_label = st.selectbox(
-    "Select Ingredient to Delete",
-    options=list(ingredient_map.keys())
+ingredient_id = st.number_input(
+    "Enter Ingredient ID",
+    min_value=0,
+    step=1
 )
 
-selected_id = ingredient_map[selected_label]
+ingredient_name = st.text_input("Enter Ingredient Name")
+
+selected_id = None
+if ingredient_id > 0 and ingredient_name:
+    for label, id_val in ingredient_map.items():
+        if str(ingredient_id) in label and ingredient_name.lower() in label.lower():
+            selected_id = id_val
+            break
+
+    if selected_id is None:
+        st.warning("Ingredient not found. Please check the ID and name.")
+        st.stop()
 
 # --- Delete action ---
 if st.button("Delete Ingredient", type="primary"):

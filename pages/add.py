@@ -65,7 +65,7 @@ st.number_input("Quantity", min_value=0, step=1, key="ingredient_quantity")
 st.number_input("Price per Unit", min_value=0.0, format="%.2f",
                 step=0.01, key="ingredient_price")
 st.selectbox("Category",
-             ["Vegetable", "Meat", "Dairy", "Grain", "Other"],
+             ["Vegetable", "Meat", "Dairy", "Bun", "Sauce", "Other"],
              key="ingredient_category")
 
 st.button("Add Ingredient", on_click=add_ingredient)
