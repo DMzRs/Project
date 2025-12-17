@@ -74,7 +74,7 @@ st.number_input("New Quantity", min_value=0, step=1,
                 key="new_ingredient_quantity")
 st.number_input("New Price per Unit", min_value=0.0,
                 step=0.01, key="new_ingredient_price")
-st.selectbox("Ingredient Category", [
-             "Vegetable", "Cheese", "Meat", "Sauce"], key="ingredient_category")
+st.selectbox("Ingredient Category", ["Vegetable", "Meat", "Dairy", "Bun", "Sauce", "Other"],
+             key="ingredient_category")
 
 st.button("Update Ingredient", on_click=update_ingredient)
